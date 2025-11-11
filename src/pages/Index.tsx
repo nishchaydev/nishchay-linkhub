@@ -1,43 +1,31 @@
-import { Mail, Github, Linkedin, Dumbbell, CloudRain, Heart, QrCode } from "lucide-react";
-import { useState } from "react";
-import { ContactFormModal } from "@/components/ContactFormModal";
-
-const Index = () => {
-  const [isContactModalOpen, setIsContactModalOpen] = useState(false);
+function Index() {
   const links = [
     {
-      icon: <Github className="w-5 h-5" />,
       title: "GitHub",
       description: "Check out my code and projects",
       url: "https://github.com/nishchaydev",
     },
     {
-      icon: <Linkedin className="w-5 h-5" />,
       title: "LinkedIn",
       description: "Let's connect professionally",
       url: "https://linkedin.com/in/nishchaydev",
     },
     {
-      icon: <Mail className="w-5 h-5" />,
       title: "Email",
       description: "Get in touch directly",
       url: "mailto:nishchay.gupta@cdgi.edu.in",
-      onClick: () => setIsContactModalOpen(true),
     },
     {
-      icon: <Dumbbell className="w-5 h-5" />,
       title: "Gym Management System",
       description: "TriStar Fitness Management Platform",
       url: "https://github.com/nishchaydev/tristar-fitness-clean",
     },
     {
-      icon: <CloudRain className="w-5 h-5" />,
       title: "Smart India Hackathon Project",
       description: "Innovation in climate tech",
       url: "https://github.com/nishchaydev/SIH-",
     },
     {
-      icon: <Heart className="w-5 h-5" />,
       title: "Personal Tracker",
       description: "Track habits and personal growth",
       url: "https://github.com/nishchaydev/tracker",
@@ -45,84 +33,85 @@ const Index = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-background flex items-center justify-center p-6">
-      <div className="w-full max-w-2xl mx-auto py-12">
-        {/* Header */}
-        <header className="text-center mb-12 space-y-4">
-          <h1 className="text-4xl md:text-5xl font-bold text-foreground tracking-tight">
+    <div style={{ minHeight: "100vh", background: "linear-gradient(to bottom right, #eff6ff, #e0e7ff)", display: "flex", alignItems: "center", justifyContent: "center", padding: "24px" }}>
+      <div style={{ width: "100%", maxWidth: "42rem", margin: "0 auto", paddingTop: "48px", paddingBottom: "48px" }}>
+        <header style={{ textAlign: "center", marginBottom: "48px" }}>
+          <h1 style={{ fontSize: "48px", fontWeight: "bold", color: "#111827", margin: "0 0 16px 0" }}>
             Nishchay Gupta
           </h1>
-          <p className="text-lg md:text-xl text-muted-foreground font-medium">
+          <p style={{ fontSize: "20px", color: "#374151", fontWeight: "500", margin: "0 0 12px 0" }}>
             AI & Full Stack Developer | TypeScript | Python | ML Enthusiast
           </p>
-          <p className="text-sm md:text-base text-muted-foreground max-w-xl mx-auto">
+          <p style={{ fontSize: "16px", color: "#4b5563", margin: "0 auto" }}>
             I build, learn, and experiment with code, AI tools, and problem-solving.
           </p>
         </header>
 
-        {/* Links */}
-        <div className="space-y-4 mb-16">
+        <div style={{ marginBottom: "64px" }}>
           {links.map((link, index) => (
             <a
               key={index}
-              href={link.onClick ? undefined : link.url}
-              onClick={(e) => {
-                if (link.onClick) {
-                  e.preventDefault();
-                  link.onClick();
-                }
+              href={link.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                display: "block",
+                width: "100%",
+                background: "white",
+                border: "2px solid #e5e7eb",
+                borderRadius: "12px",
+                padding: "24px",
+                marginBottom: "16px",
+                transition: "all 0.3s ease",
+                cursor: "pointer",
+                textDecoration: "none",
               }}
-              target={link.onClick ? undefined : "_blank"}
-              rel={link.onClick ? undefined : "noopener noreferrer"}
-              className="block w-full bg-link-card border border-border rounded-xl p-6 transition-all duration-300 hover:shadow-[0_10px_30px_-10px_rgb(37_99_235_/_0.3)] hover:border-primary hover:-translate-y-1 group cursor-pointer"
+              onMouseEnter={(e) => {
+                e.currentTarget.style.boxShadow = "0 20px 25px -5px rgba(0, 0, 0, 0.1)";
+                e.currentTarget.style.borderColor = "#3b82f6";
+                e.currentTarget.style.transform = "translateY(-4px)";
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.boxShadow = "none";
+                e.currentTarget.style.borderColor = "#e5e7eb";
+                e.currentTarget.style.transform = "translateY(0)";
+              }}
             >
-              <div className="flex items-center gap-4">
-                <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-300">
-                  {link.icon}
-                </div>
-                <div className="flex-1 min-w-0">
-                  <h3 className="text-lg font-semibold text-foreground mb-1 group-hover:text-primary transition-colors">
+              <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+                <div>
+                  <h3 style={{ fontSize: "18px", fontWeight: "600", color: "#111827", margin: "0 0 4px 0" }}>
                     {link.title}
                   </h3>
-                  <p className="text-sm text-muted-foreground">
+                  <p style={{ fontSize: "14px", color: "#6b7280", margin: 0 }}>
                     {link.description}
                   </p>
                 </div>
-                <div className="flex-shrink-0">
-                  <svg
-                    className="w-5 h-5 text-muted-foreground group-hover:text-primary group-hover:translate-x-1 transition-all"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M9 5l7 7-7 7"
-                    />
-                  </svg>
-                </div>
+                <svg
+                  style={{ width: "24px", height: "24px", color: "#9ca3af", marginLeft: "16px", flexShrink: 0 }}
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M9 5l7 7-7 7"
+                  />
+                </svg>
               </div>
             </a>
           ))}
         </div>
 
-        {/* Footer */}
-        <footer className="text-center space-y-4">
-          <div className="flex items-center justify-center gap-2 text-sm text-muted-foreground">
-            <span>Built by Nishchay Gupta</span>
-            <QrCode className="w-4 h-4" />
-          </div>
+        <footer style={{ textAlign: "center" }}>
+          <p style={{ fontSize: "14px", color: "#6b7280", margin: 0 }}>
+            Built by Nishchay Gupta
+          </p>
         </footer>
       </div>
-
-      <ContactFormModal 
-        open={isContactModalOpen} 
-        onOpenChange={setIsContactModalOpen} 
-      />
     </div>
   );
-};
+}
 
 export default Index;
