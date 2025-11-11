@@ -1,37 +1,6 @@
-function Index() {
-  const links = [
-    {
-      title: "GitHub",
-      description: "Check out my code and projects",
-      url: "https://github.com/nishchaydev",
-    },
-    {
-      title: "LinkedIn",
-      description: "Let's connect professionally",
-      url: "https://linkedin.com/in/nishchaydev",
-    },
-    {
-      title: "Email",
-      description: "Get in touch directly",
-      url: "mailto:nishchay.gupta@cdgi.edu.in",
-    },
-    {
-      title: "Gym Management System",
-      description: "TriStar Fitness Management Platform",
-      url: "https://github.com/nishchaydev/tristar-fitness-clean",
-    },
-    {
-      title: "Smart India Hackathon Project",
-      description: "Innovation in climate tech",
-      url: "https://github.com/nishchaydev/SIH-",
-    },
-    {
-      title: "Personal Tracker",
-      description: "Track habits and personal growth",
-      url: "https://github.com/nishchaydev/tracker",
-    },
-  ];
+import React from 'react';
 
+export default function Index() {
   return (
     <div style={{ minHeight: "100vh", background: "linear-gradient(to bottom right, #eff6ff, #e0e7ff)", display: "flex", alignItems: "center", justifyContent: "center", padding: "24px" }}>
       <div style={{ width: "100%", maxWidth: "42rem", margin: "0 auto", paddingTop: "48px", paddingBottom: "48px" }}>
@@ -48,60 +17,65 @@ function Index() {
         </header>
 
         <div style={{ marginBottom: "64px" }}>
-          {links.map((link, index) => (
-            <a
-              key={index}
-              href={link.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{
-                display: "block",
-                width: "100%",
-                background: "white",
-                border: "2px solid #e5e7eb",
-                borderRadius: "12px",
-                padding: "24px",
-                marginBottom: "16px",
-                transition: "all 0.3s ease",
-                cursor: "pointer",
-                textDecoration: "none",
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.boxShadow = "0 20px 25px -5px rgba(0, 0, 0, 0.1)";
-                e.currentTarget.style.borderColor = "#3b82f6";
-                e.currentTarget.style.transform = "translateY(-4px)";
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.boxShadow = "none";
-                e.currentTarget.style.borderColor = "#e5e7eb";
-                e.currentTarget.style.transform = "translateY(0)";
-              }}
-            >
-              <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
-                <div>
-                  <h3 style={{ fontSize: "18px", fontWeight: "600", color: "#111827", margin: "0 0 4px 0" }}>
-                    {link.title}
-                  </h3>
-                  <p style={{ fontSize: "14px", color: "#6b7280", margin: 0 }}>
-                    {link.description}
-                  </p>
-                </div>
-                <svg
-                  style={{ width: "24px", height: "24px", color: "#9ca3af", marginLeft: "16px", flexShrink: 0 }}
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M9 5l7 7-7 7"
-                  />
-                </svg>
+          <a href="https://github.com/nishchaydev" target="_blank" rel="noopener noreferrer" style={{ display: "block", width: "100%", background: "white", border: "2px solid #e5e7eb", borderRadius: "12px", padding: "24px", marginBottom: "16px", textDecoration: "none" }}>
+            <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+              <div>
+                <h3 style={{ fontSize: "18px", fontWeight: "600", color: "#111827", margin: "0 0 4px 0" }}>GitHub</h3>
+                <p style={{ fontSize: "14px", color: "#6b7280", margin: 0 }}>Check out my code and projects</p>
               </div>
-            </a>
-          ))}
+              <svg style={{ width: "24px", height: "24px", color: "#9ca3af", marginLeft: "16px" }} fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
+            </div>
+          </a>
+
+          <a href="https://linkedin.com/in/nishchaydev" target="_blank" rel="noopener noreferrer" style={{ display: "block", width: "100%", background: "white", border: "2px solid #e5e7eb", borderRadius: "12px", padding: "24px", marginBottom: "16px", textDecoration: "none" }}>
+            <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+              <div>
+                <h3 style={{ fontSize: "18px", fontWeight: "600", color: "#111827", margin: "0 0 4px 0" }}>LinkedIn</h3>
+                <p style={{ fontSize: "14px", color: "#6b7280", margin: 0 }}>Let's connect professionally</p>
+              </div>
+              <svg style={{ width: "24px", height: "24px", color: "#9ca3af", marginLeft: "16px" }} fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
+            </div>
+          </a>
+
+          <a href="mailto:nishchay.gupta@cdgi.edu.in" style={{ display: "block", width: "100%", background: "white", border: "2px solid #e5e7eb", borderRadius: "12px", padding: "24px", marginBottom: "16px", textDecoration: "none" }}>
+            <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+              <div>
+                <h3 style={{ fontSize: "18px", fontWeight: "600", color: "#111827", margin: "0 0 4px 0" }}>Email</h3>
+                <p style={{ fontSize: "14px", color: "#6b7280", margin: 0 }}>Get in touch directly</p>
+              </div>
+              <svg style={{ width: "24px", height: "24px", color: "#9ca3af", marginLeft: "16px" }} fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
+            </div>
+          </a>
+
+          <a href="https://github.com/nishchaydev/tristar-fitness-clean" target="_blank" rel="noopener noreferrer" style={{ display: "block", width: "100%", background: "white", border: "2px solid #e5e7eb", borderRadius: "12px", padding: "24px", marginBottom: "16px", textDecoration: "none" }}>
+            <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+              <div>
+                <h3 style={{ fontSize: "18px", fontWeight: "600", color: "#111827", margin: "0 0 4px 0" }}>Gym Management System</h3>
+                <p style={{ fontSize: "14px", color: "#6b7280", margin: 0 }}>TriStar Fitness Management Platform</p>
+              </div>
+              <svg style={{ width: "24px", height: "24px", color: "#9ca3af", marginLeft: "16px" }} fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
+            </div>
+          </a>
+
+          <a href="https://github.com/nishchaydev/SIH-" target="_blank" rel="noopener noreferrer" style={{ display: "block", width: "100%", background: "white", border: "2px solid #e5e7eb", borderRadius: "12px", padding: "24px", marginBottom: "16px", textDecoration: "none" }}>
+            <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+              <div>
+                <h3 style={{ fontSize: "18px", fontWeight: "600", color: "#111827", margin: "0 0 4px 0" }}>Smart India Hackathon Project</h3>
+                <p style={{ fontSize: "14px", color: "#6b7280", margin: 0 }}>Innovation in climate tech</p>
+              </div>
+              <svg style={{ width: "24px", height: "24px", color: "#9ca3af", marginLeft: "16px" }} fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
+            </div>
+          </a>
+
+          <a href="https://github.com/nishchaydev/tracker" target="_blank" rel="noopener noreferrer" style={{ display: "block", width: "100%", background: "white", border: "2px solid #e5e7eb", borderRadius: "12px", padding: "24px", marginBottom: "16px", textDecoration: "none" }}>
+            <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+              <div>
+                <h3 style={{ fontSize: "18px", fontWeight: "600", color: "#111827", margin: "0 0 4px 0" }}>Personal Tracker</h3>
+                <p style={{ fontSize: "14px", color: "#6b7280", margin: 0 }}>Track habits and personal growth</p>
+              </div>
+              <svg style={{ width: "24px", height: "24px", color: "#9ca3af", marginLeft: "16px" }} fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
+            </div>
+          </a>
         </div>
 
         <footer style={{ textAlign: "center" }}>
@@ -113,5 +87,3 @@ function Index() {
     </div>
   );
 }
-
-export default Index;
