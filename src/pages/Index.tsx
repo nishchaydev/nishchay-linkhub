@@ -1,6 +1,9 @@
 import { Mail, Github, Linkedin, Dumbbell, CloudRain, Heart, QrCode } from "lucide-react";
+import { useState } from "react";
+import { ContactFormModal } from "@/components/ContactFormModal";
 
 const Index = () => {
+  const [isContactModalOpen, setIsContactModalOpen] = useState(false);
   const links = [
     {
       icon: <Github className="w-5 h-5" />,
@@ -19,6 +22,7 @@ const Index = () => {
       title: "Email",
       description: "Get in touch directly",
       url: "mailto:nishchay.gupta@cdgi.edu.in",
+      onClick: () => setIsContactModalOpen(true),
     },
     {
       icon: <Dumbbell className="w-5 h-5" />,
@@ -61,10 +65,16 @@ const Index = () => {
           {links.map((link, index) => (
             <a
               key={index}
-              href={link.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="block w-full bg-link-card border border-border rounded-xl p-6 transition-all duration-300 hover:shadow-[0_10px_30px_-10px_rgb(37_99_235_/_0.3)] hover:border-primary hover:-translate-y-1 group"
+              href={link.onClick ? undefined : link.url}
+              onClick={(e) => {
+                if (link.onClick) {
+                  e.preventDefault();
+                  link.onClick();
+                }
+              }}
+              target={link.onClick ? undefined : "_blank"}
+              rel={link.onClick ? undefined : "noopener noreferrer"}
+              className="block w-full bg-link-card border border-border rounded-xl p-6 transition-all duration-300 hover:shadow-[0_10px_30px_-10px_rgb(37_99_235_/_0.3)] hover:border-primary hover:-translate-y-1 group cursor-pointer"
             >
               <div className="flex items-center gap-4">
                 <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-300">
@@ -106,6 +116,11 @@ const Index = () => {
           </div>
         </footer>
       </div>
+
+      <ContactFormModal 
+        open={isContactModalOpen} 
+        onOpenChange={setIsContactModalOpen} 
+      />
     </div>
   );
 };
